@@ -1,39 +1,33 @@
 <template>
-  <h1>Hello vue {{ totalMOvies }}</h1>
-  <h2>{{fName}} {{lName}}</h2>
-  <ul>
-    <li v-for="(hero,index) in dcHeros" :key="hero.index">
-      <div>
-        {{ index }} : {{ hero.name }} <button @click="remove(index)">x</button>
-      </div>
-    </li>
-  </ul>
-
-  <form @submit.prevent="addMovie">
-    <input type="text" v-model.trim="newHero">
-    <button type="submit">ADD Hero</button>
-  </form>
-  <small>There are {{ herosCount }}</small>
+  <AppHeader />
+  <div class="w-full flex">
+<DcHeros
+    :dcHeros="dcHeros"
+    @addMovie="addMovie"
+    @removeMovie="remove"
+/>
+  </div>
+<AppFooter/>
 </template>
 
 <script>
-export default {
-  computed: {
-    herosCount() {
-      return this.dcHeros.length + " " + "movies"
-    },
-  },
-  methods: {
-    addMovie() {
-      if (this.newHero !== "") {
+import AppHeader from "./components/AppHeader.vue";
+import AppFooter from "./components/AppFooter.vue";
+import DcHeros from "./components/DcHeroes.vue";
 
-        this.dcHeros.push({name: this.newHero});
-        this.newHero = ''
+export default {
+  components: {AppHeader,AppFooter,DcHeros},
+  methods: {
+    addMovie(newHero) {
+      console.log(newHero)
+      if (newHero !== "") {
+
+        this.dcHeros.push({name: newHero});
       }
     },
-    // remove(index){
-    //   (this.dcHeros.filter(hero,index)=>index !== index);
-    // },
+    remove(index){
+      this.dcHeros = this.dcHeros.filter((hero, i) => i !== index);
+    },
   },
 
   data() {
@@ -45,8 +39,6 @@ export default {
         { name: "Arrow" },
         { name: "SuperMan" },
       ],
-
-      newHero: "",
 
       // attribute:"value"
     };
