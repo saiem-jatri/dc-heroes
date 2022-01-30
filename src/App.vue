@@ -1,49 +1,19 @@
 <template>
   <AppHeader />
   <div class="w-full flex">
-<DcHeros
-    :dcHeros="dcHeros"
-    @addMovie="addMovie"
-    @removeMovie="remove"
-/>
+    <router-view></router-view>
   </div>
-<AppFooter/>
+<!--  <Calender/>-->
+
+<!--<AppFooter/>-->
 </template>
 
 <script>
 import AppHeader from "./components/AppHeader.vue";
-import AppFooter from "./components/AppFooter.vue";
-import DcHeros from "./components/DcHeroes.vue";
+// import AppFooter from "./components/AppFooter.vue";
+// import Calender from "./components/Calendar.vue"
 
 export default {
-  components: {AppHeader,AppFooter,DcHeros},
-  methods: {
-    addMovie(newHero) {
-      console.log(newHero)
-      if (newHero !== "") {
-
-        this.dcHeros.push({name: newHero});
-      }
-    },
-    remove(index){
-      this.dcHeros = this.dcHeros.filter((hero, i) => i !== index);
-    },
-  },
-
-  data() {
-    return {
-      dcHeros: [
-        { name: "SuperGirl" },
-        { name: "Flash" },
-        { name: "Batman" },
-        { name: "Arrow" },
-        { name: "SuperMan" },
-      ],
-
-      // attribute:"value"
-    };
-  }
-
-
+  components: {AppHeader},
 }
 </script>
