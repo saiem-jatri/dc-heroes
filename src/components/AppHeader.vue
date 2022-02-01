@@ -5,6 +5,11 @@
   <router-link class="mx-2" to="/calendar">Calendar</router-link>
   <router-link class="mx-2" to="/home">Home</router-link>
   <router-link class="mx-2" to="/markdown">markdown</router-link>
+  <router-link class="mx-2" to="/carousel">carousel</router-link>
+  <router-link class="mx-2" to="/modal">
+    <button @click="$emit('open-login-modal')" >Login </button>
+  </router-link>
+
 </h3>
 </a>
  </nav>

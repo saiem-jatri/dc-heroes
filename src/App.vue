@@ -1,20 +1,27 @@
 <template>
-  <AppHeader />
+  <AppHeader @open-login-modal="isLoginOPen = true"/>
   <div class="w-full flex">
     <router-view></router-view>
   </div>
-<!--  <Calender/>-->
+  <loginModal v-if="isLoginOPen" @close-login="isLoginOPen=false"/>
 
-<!--<AppFooter/>-->
 </template>
 
 <script>
 import AppHeader from "./components/AppHeader.vue";
+// import LoginModal from "./components/LoginModal.vue";
 import Home from "./components/Home.vue";
+import LoginModal from "./components/LoginModal.vue";
 // import AppFooter from "./components/AppFooter.vue";
 // import Calender from "./components/Calendar.vue"
 
 export default {
-  components: {AppHeader,Home},
+  components: {LoginModal, AppHeader,Home},
+  data() {
+    return {
+      isLoginOPen:false,
+    }
+  }
 }
+
 </script>
