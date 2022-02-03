@@ -6,6 +6,7 @@ import Home from "./components/Home.vue";
 import MarkDown from "./components/MarkDown.vue";
 import Carousel from "./components/Carousel.vue";
 import LoginModal from "./components/LoginModal.vue";
+import Calculator from "./components/Calculator.vue";
 
 
 const routes=[
@@ -15,6 +16,7 @@ const routes=[
     {path:'/markdown',component:MarkDown},
     {path:'/carousel',component:Carousel},
     {path:'/LoginModal',component:LoginModal},
+    {path:'/Calculator',component:Calculator},
 ]
 const router = createRouter({
     history: createWebHistory(),
