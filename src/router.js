@@ -7,6 +7,7 @@ import MarkDown from "./components/MarkDown.vue";
 import Carousel from "./components/Carousel.vue";
 import LoginModal from "./components/LoginModal.vue";
 import Calculator from "./components/Calculator.vue";
+import reuseable from "./components/ResueableModal.vue";
 
 
 const routes=[
@@ -17,6 +18,7 @@ const routes=[
     {path:'/carousel',component:Carousel},
     {path:'/LoginModal',component:LoginModal},
     {path:'/Calculator',component:Calculator},
+    {path:'/reuseable',component:reuseable},
 ]
 const router = createRouter({
     history: createWebHistory(),

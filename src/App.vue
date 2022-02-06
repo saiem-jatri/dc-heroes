@@ -4,7 +4,6 @@
     <router-view></router-view>
   </div>
   <loginModal v-if="isLoginOPen" @close-login="isLoginOPen=false"/>
-
 </template>
 
 <script>
@@ -13,11 +12,12 @@ import AppHeader from "./components/AppHeader.vue";
 import Home from "./components/Home.vue";
 import LoginModal from "./components/LoginModal.vue";
 import Calculator from "./components/Calculator.vue";
+import reuseable from "./components/ResueableModal.vue";
 // import AppFooter from "./components/AppFooter.vue";
 // import Calender from "./components/Calendar.vue"
 
 export default {
-  components: {LoginModal, AppHeader,Home,Calculator},
+  components: {LoginModal, AppHeader,Home,Calculator,reuseable},
   data() {
     return {
       isLoginOPen:false,
