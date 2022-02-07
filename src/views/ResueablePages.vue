@@ -6,6 +6,13 @@
     <div class ="flex h-full">
       <div class="z-30 m-auto bg-white rounded p-4 shadow">
         <div class="p-2 border">
+         <h1 class ="text-2xl">
+           <slot name="title"></slot>
+         </h1>
+          <main>
+            <slot name="body">
+            </slot>
+          </main>
       </div>
      </div>
    </div>
@@ -15,9 +22,9 @@
 <script>
 export default {
   name: "ResueablePages",
-  setup(_,{emit}){
+  setup(_,{ emit }){
    function close(){
-      this.emit("close");
+      emit("close");
     }
     return {close}
   }
